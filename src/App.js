@@ -69,12 +69,10 @@ class App extends Component {
   }
 
   displayFaceBox = (box) => {
-    console.log(box);
     this.setState({box: box});
   }
 
   onInputChange = (event) => {
-    console.log(event.target.value);
     this.setState({input: event.target.value});
   }
 
@@ -102,6 +100,7 @@ class App extends Component {
     .catch(err => console.log(err));
   }
   
+
 
   onRouteChange = (route) => {
     if (route === 'signout') {
