@@ -19117,7 +19117,7 @@ function (_Component) {
 
       app.models.predict(clarifai__WEBPACK_IMPORTED_MODULE_2___default.a.FACE_DETECT_MODEL, _this.state.input).then(function (response) {
         if (response) {
-          fetch('http://localhost:3000/image', {
+          fetch('https://git.heroku.com/aqueous-harbor-46340.git/image', {
             method: 'put',
             headers: {
               'Content-type': 'application/json'
@@ -19519,7 +19519,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "onSubmitSignIn", function () {
-      fetch('http://localhost:3000/register', {
+      fetch('https://git.heroku.com/aqueous-harbor-46340.git/register', {
         method: 'post',
         headers: {
           'Content-type': 'application/json'
@@ -19672,7 +19672,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "onSubmitSignIn", function () {
-      fetch('http://localhost:3000/signin', {
+      fetch('https://git.heroku.com/aqueous-harbor-46340.git/signin', {
         method: 'post',
         headers: {
           'Content-type': 'application/json'
