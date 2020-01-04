@@ -12,18 +12,14 @@
     "react-particles-js": "^2.7.0",
     "react-scripts": "3.2.0",
     "react-tilt": "^0.1.4",
-    "tachyons": "^4.11.1",
-    "webpack-cli": "^3.3.10"
+    "tachyons": "^4.11.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "sass-loader": "^8.0.0",
-    "source-map-loader": "^0.2.4",
-    "style-loader": "^1.0.0"
+    "source-map-loader": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
