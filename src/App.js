@@ -76,7 +76,8 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input})
-    fetch('https://stark-brushlands-72162.herokuapp.com/imageurl', {
+    // fetch('https://stark-brushlands-72162.herokuapp.com/imageurl', {
+      fetch('http://localhost:3002/imageurl', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify({
@@ -86,7 +87,8 @@ class App extends Component {
   .then(response => response.json())
     .then(response => {
       if (response) {
-        fetch('https://stark-brushlands-72162.herokuapp.com/image', {
+        // fetch('https://stark-brushlands-72162.herokuapp.com/image', {
+          fetch('http://localhost:3002/image', {
           method: 'put',
           headers: {'Content-type': 'application/json'},
           body: JSON.stringify({
