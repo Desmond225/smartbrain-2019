@@ -26,8 +26,8 @@ const initialState = {
   input: '',
   imageUrl: '',
   boxes: [],
-  route: 'signin',
-  isSignedIn: false,
+  route: 'home',
+  isSignedIn: true,
   user: {
     id: '',
     name: '',
@@ -80,7 +80,6 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input})
-    // fetch('https://stark-brushlands-72162.herokuapp.com/imageurl', {
       fetch('http://localhost:3000/imageurl', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
@@ -91,7 +90,6 @@ class App extends Component {
   .then(response => response.json())
     .then(response => {
       if (response) {
-        // fetch('https://stark-brushlands-72162.herokuapp.com/image', {
           fetch('http://localhost:3000/image', {
           method: 'put',
           headers: {'Content-type': 'application/json'},
