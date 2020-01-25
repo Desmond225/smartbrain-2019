@@ -1,29 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-class ProfileIcon extends React.Component {
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-            dropdownOpen: false
-        }
-    }
+const ProfileIcon = () => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    toggle = () => {
-        this.setState(prevState => ({
-            dropdownOpen: !prevState.dropdownOpen
-        }));
-    }
+    const toggle = () => setDropdownOpen(prevState => !prevState);
 
-    render() {
         return (
             <div className="pa4 tc">
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <Dropdown isOpen={dropdownOpen} toggle={toggle}>
                     <DropdownToggle
                         tag="span"
                         data-toggle="dropdown"
-                        aria-expanded={this.state.dropdownOpen}>
+                        aria-expanded={dropdownOpen}>
 
                     <img
                         src="http://tachyons.io/img/logo.jpg"
@@ -41,7 +30,6 @@ class ProfileIcon extends React.Component {
 
             </div>
         );
-    }
 }
 
 export default ProfileIcon;
