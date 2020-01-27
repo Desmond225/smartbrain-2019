@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-const ProfileIcon = () => {
+const ProfileIcon = (props) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -20,11 +20,12 @@ const ProfileIcon = () => {
                     />
 
                     </DropdownToggle>
-                    <DropdownMenu 
+                    <DropdownMenu
+                        right
                         className="b--transparent shadow-5" 
                         style={{marginTop: '20px', backgroundColor: 'rgba(255,255,255,.5)'}}>
-                        <DropdownItem header>View profile</DropdownItem>
-                        <DropdownItem>Signout</DropdownItem>
+                        <DropdownItem onClick={props.toggleModal}>View profile</DropdownItem>
+                        <DropdownItem onClick={() => props.onRouteChange('signout')}>Sign out</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
 

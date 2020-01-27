@@ -8,7 +8,8 @@ import Rank from './components/rank/rank';
 import Signin from './components/signin/signin';
 import Register from './components/register/register';
 import Particles from 'react-particles-js';
-
+import Modal from './components/modal/modal';
+import Profile from './components/profile/profile';
 
 const particlesOptions = {
   particles: {
@@ -26,14 +27,17 @@ const initialState = {
   input: '',
   imageUrl: '',
   boxes: [],
-  route: 'home',
-  isSignedIn: true,
+  route: 'signin',
+  isSignedIn: false,
+  isProfileOpen: false,
   user: {
     id: '',
     name: '',
     email: '',
     entries: 0,
-    joined: ''
+    joined: '',
+    pet: '',
+    age: ''
   }
 }
 
@@ -113,7 +117,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({isSignedIn: false})
+      return this.setState(initialState)
     }
     else if(route === 'home') {
       this.setState({isSignedIn: true})
@@ -121,8 +125,15 @@ class App extends Component {
     this.setState({route: route});
   }
 
+  toggleModal = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      isProfileOpen: !prevState.isProfileOpen
+    }))
+  }
+
   render() {
-    const { isSignedIn, imageUrl, route, boxes } = this.state;
+    const { isSignedIn, imageUrl, route, boxes, isProfileOpen, user } = this.state;
 
   return (
     <div className="App">
@@ -132,11 +143,22 @@ class App extends Component {
       />
       <Navigation 
         isSignedIn={this.state.isSignedIn} 
-        onRouteChange={this.onRouteChange} 
+        onRouteChange={this.onRouteChange}
+        toggleModal={this.toggleModal}
       />
+        { isProfileOpen && 
+          <Modal>
+            <Profile 
+              isProfileOpen={isProfileOpen} 
+              toggleModal={this.toggleModal}
+              user={user}
+              />
+          </Modal>
+        }
         { route === 'home' 
           ? <div>
               <Logo />
+
               <Rank name={this.state.user.name} entries={this.state.user.entries}/>
               <ImageLinkForm 
                 onInputChange={this.onInputChange}
